@@ -129,8 +129,8 @@
 
 /// Show a link with an icon, specifically for Github projects
 /// *Example*
-/// #example(`resume.github-link("DeveloperPaul123/awesome-resume")`)
-/// - github-path (string): The path to the Github project (e.g. "DeveloperPaul123/awesome-resume")
+/// #example(`resume.github-link("ptsouchlos/awesome-resume")`)
+/// - github-path (string): The path to the Github project (e.g. "ptsouchlos/awesome-resume")
 /// -> none
 #let github-link(github-path) = {
   set box(height: 11pt)

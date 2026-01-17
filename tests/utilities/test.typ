@@ -47,9 +47,9 @@
 
 #justified-header("Modern CV", "A modern curriculum vitae template")
 
-#secondary-justified-header("Created by", "DeveloperPaul123")
+#secondary-justified-header("Created by", "ptsouchlos")
 
-#github-link("DeveloperPaul123/modern-cv")
+#github-link("ptsouchlos/modern-cv")
 #linkedin-icon
 #github-icon
 #twitter-icon

@@ -7,8 +7,8 @@
     email: "js@example.com",
     homepage: "https://example.com",
     phone: "(+1) 111-111-1111",
-    github: "DeveloperPaul123",
-    gitlab: "DeveloperPaul123",
+    github: "ptsouchlos",
+    gitlab: "ptsouchlos",
     bitbucket: "DeveloperPaul123",
     twitter: "typstapp",
     bluesky: "ptsou.bsky.social",
@@ -50,7 +50,7 @@
   location: "Example City, EX",
   date: "2019 - Present",
   description: "Example, Inc.",
-  title-link: "https://github.com/DeveloperPaul123",
+  title-link: "https://github.com/ptsouchlos",
 )
 
 #resume-item[
@@ -83,7 +83,7 @@
 
 #resume-entry(
   title: "Thread Pool C++ Library",
-  location: [#github-link("DeveloperPaul123/thread-pool")],
+  location: [#github-link("ptsouchlos/thread-pool")],
   date: "May 2021 - Present",
   description: "Designer/Developer",
 )
@@ -95,7 +95,7 @@
 
 #resume-entry(
   title: "Event Bus C++ Library",
-  location: github-link("DeveloperPaul123/eventbus"),
+  location: github-link("ptsouchlos/eventbus"),
   date: "Sep. 2019 - Present",
   description: "Designer/Developer",
 )

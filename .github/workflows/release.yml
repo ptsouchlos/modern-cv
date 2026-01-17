@@ -7,7 +7,7 @@ env:
   # the repository to which to push the release version
   # usually a fork of typst/packages (https://github.com/typst/packages/)
   # that you have push privileges to
-  REGISTRY_REPO: DeveloperPaul123/typst-packages
+  REGISTRY_REPO: ptsouchlos/typst-packages
   # the path within that repo where the "<name>/<version>" directory should be put
   # for the Typst package registry, keep this as is
   PATH_PREFIX: packages/preview

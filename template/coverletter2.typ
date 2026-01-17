@@ -7,7 +7,7 @@
     email: "js@gmail.com",
     homepage: "https://example.com",
     phone: "(+1) 111-111-1111",
-    github: "DeveloperPaul123",
+    github: "ptsouchlos",
     linkedin: "John Smith",
     address: "111 Example St. Apt. 111, Example City, EX 11111",
     positions: (
