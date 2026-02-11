@@ -270,7 +270,7 @@
 
   set heading(numbering: none, outlined: false)
 
-  show heading.where(level: 1): it => [
+  show heading.where(level: 1): it => block(sticky: true)[
     #set text(size: 16pt, weight: "regular")
     #set align(left)
     #set block(above: 1em)
