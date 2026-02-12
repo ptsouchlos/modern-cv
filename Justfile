@@ -1,4 +1,5 @@
 root := justfile_directory()
+set windows-shell := ["pwsh", "-NoLogo", "-Command"]
 
 export TYPST_ROOT := root
 
