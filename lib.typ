@@ -662,6 +662,17 @@
 /// ---- End of Resume Template ----
 
 /// ---- Coverletter ----
+#let default-signature(lang-data, language, author) = {
+  align(bottom)[
+    #pad(bottom: 2em)[
+      #text(weight: "light")[#linguify("sincerely", from: lang-data)#if (language != "de") [#sym.comma]] \
+      #if ("signature" in author) {
+        author.signature
+      }
+      #text(weight: "bold")[#author.firstname #author.lastname]
+    ]
+  ]
+}
 
 #let default-closing(lang-data) = {
   align(bottom)[
@@ -683,6 +694,7 @@
 /// - font (array): The font families of the cover letter
 /// - header-font (array): The font families of the cover letter header
 /// - show-footer (boolean): Whether to show the footer or not
+/// - signaure (content): The signature of the cover letter. You can set this to `none` to show the default signature or remove it completely.
 /// - closing (content): The closing of the cover letter. This defaults to "Attached Curriculum Vitae". You can set this to `none` to show the default closing or remove it completely.
 /// - use-smallcaps (boolean): Whether to use small caps formatting throughout the template
 /// - show-address-icon (boolean): Whether to show the address icon
@@ -698,13 +710,13 @@
   font: ("Source Sans Pro", "Source Sans 3"),
   header-font: "Roboto",
   show-footer: true,
+  signature: none,
   closing: none,
   paper-size: "a4",
   use-smallcaps: true,
   show-address-icon: false,
   description: none,
   keywords: (),
-  signature: image,
   body,
 ) = {
   if type(accent-color) == str {
@@ -713,6 +725,10 @@
 
   // language data
   let lang_data = toml("lang.toml")
+
+  if signature == none {
+    signature = default-signature(lang_data, language, author)
+  }
 
   if closing == none {
     closing = default-closing(lang_data)
@@ -913,20 +929,6 @@
         #contacts
       ],
     )
-  }
-
-  let signature = {
-    align(bottom)[
-      #pad(bottom: 2em)[
-        #if ("signature" in author) {
-          author.signature
-        }
-        #text(weight: "light")[#linguify("sincerely", from: lang_data)#if (
-            language != "de"
-          ) [#sym.comma]] \
-        #text(weight: "bold")[#author.firstname #author.lastname] \ \
-      ]
-    ]
   }
 
   // actual content
