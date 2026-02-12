@@ -662,6 +662,11 @@
 /// ---- End of Resume Template ----
 
 /// ---- Coverletter ----
+
+/// Default signature for the cover letter template.
+/// - lang-data (dictionary): Structure that contains all the language data. Used with `linguify`
+/// - language (string): The language of the cover letter.
+/// - author (string): The author of the cover letter.
 #let default-signature(lang-data, language, author) = {
   align(bottom)[
     #pad(bottom: 2em)[
