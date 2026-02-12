@@ -340,7 +340,7 @@
   // - link-prefix (string): The prefix to use for the link (e.g. "mailto:")
   let contact-item(item, link-prefix: "") = {
     box[
-      #set align(bottom)
+      #set align(center + horizon)
       #if ("icon" in item) {
         [#item.icon]
       }
@@ -361,140 +361,128 @@
     let items = ()
 
     if "birth" in author {
-      items.push(
-        contact-item(
-          (text: author.birth, icon: birth-icon),
-        ),
-      )
+      items.push(contact-item((text: author.birth, icon: birth-icon)))
     }
     if "phone" in author {
-      items.push(
-        contact-item(
-          (text: author.phone, icon: phone-icon, link: author.phone),
-          link-prefix: "tel:",
-        ),
-      )
+      items.push(contact-item(
+        (text: author.phone, icon: phone-icon, link: author.phone),
+        link-prefix: "tel:",
+      ))
     }
     if "email" in author {
-      items.push(
-        contact-item(
-          (text: author.email, icon: email-icon, link: author.email),
-          link-prefix: "mailto:",
-        ),
-      )
+      items.push(contact-item(
+        (text: author.email, icon: email-icon, link: author.email),
+        link-prefix: "mailto:",
+      ))
     }
     if "homepage" in author {
-      items.push(
-        contact-item(
-          (text: author.homepage, icon: homepage-icon, link: author.homepage),
-        ),
-      )
+      items.push(contact-item((
+        text: author.homepage,
+        icon: homepage-icon,
+        link: author.homepage,
+      )))
     }
     if "github" in author {
-      items.push(
-        contact-item(
-          (text: author.github, icon: github-icon, link: author.github),
-          link-prefix: "https://github.com/",
-        ),
-      )
+      items.push(contact-item(
+        (text: author.github, icon: github-icon, link: author.github),
+        link-prefix: "https://github.com/",
+      ))
     }
     if "gitlab" in author {
-      items.push(
-        contact-item(
-          (text: author.gitlab, icon: gitlab-icon, link: author.gitlab),
-          link-prefix: "https://gitlab.com/",
-        ),
-      )
+      items.push(contact-item(
+        (text: author.gitlab, icon: gitlab-icon, link: author.gitlab),
+        link-prefix: "https://gitlab.com/",
+      ))
     }
     if "bitbucket" in author {
-      items.push(
-        contact-item(
-          (text: author.bitbucket, icon: bitbucket-icon, link: author.bitbucket),
-          link-prefix: "https://bitbucket.org/",
+      items.push(contact-item(
+        (
+          text: author.bitbucket,
+          icon: bitbucket-icon,
+          link: author.bitbucket,
         ),
-      )
+        link-prefix: "https://bitbucket.org/",
+      ))
     }
     if "linkedin" in author {
-      items.push(
-        contact-item(
-          (
-            text: author.firstname + " " + author.lastname,
-            icon: linkedin-icon,
-            link: author.linkedin,
-          ),
-          link-prefix: "https://www.linkedin.com/in/",
+      items.push(contact-item(
+        (
+          text: author.firstname + " " + author.lastname,
+          icon: linkedin-icon,
+          link: author.linkedin,
         ),
-      )
+        link-prefix: "https://www.linkedin.com/in/",
+      ))
     }
     if "twitter" in author {
-      items.push(
-        contact-item(
-          (text: "@" + author.twitter, icon: twitter-icon, link: author.twitter),
-          link-prefix: "https://twitter.com/",
+      items.push(contact-item(
+        (
+          text: "@" + author.twitter,
+          icon: twitter-icon,
+          link: author.twitter,
         ),
-      )
+        link-prefix: "https://twitter.com/",
+      ))
     }
     if "bluesky" in author {
-      items.push(
-        contact-item(
-          (text: "@" + author.bluesky, icon: bluesky-icon, link: author.bluesky),
-          link-prefix: "https://bsky.app/profile/",
-        )
-      )
+      items.push(contact-item(
+        (
+          text: "@" + author.bluesky,
+          icon: bluesky-icon,
+          link: author.bluesky,
+        ),
+        link-prefix: "https://bsky.app/profile/",
+      ))
     }
     if "mastodon" in author {
-      items.push(
-        contact-item(
-          (text: "@" + author.mastodon, icon: mastodon-icon, link: author.mastodon),
-          link-prefix: "https://mastodon.social/@"
-        )
-      )
+      items.push(contact-item(
+        (
+          text: "@" + author.mastodon,
+          icon: mastodon-icon,
+          link: author.mastodon,
+        ),
+        link-prefix: "https://mastodon.social/@",
+      ))
     }
     if "scholar" in author {
       let fullname = str(author.firstname + " " + author.lastname)
-      items.push(
-        contact-item(
-          (text: fullname, icon: google-scholar-icon, link: author.scholar),
-          link-prefix: "https://scholar.google.com/citations?user=",
-        ),
-      )
+      items.push(contact-item(
+        (text: fullname, icon: google-scholar-icon, link: author.scholar),
+        link-prefix: "https://scholar.google.com/citations?user=",
+      ))
     }
     if "orcid" in author {
-      items.push(
-        contact-item(
-          (text: author.orcid, icon: orcid-icon, link: author.orcid),
-          link-prefix: "https://orcid.org/",
-        ),
-      )
+      items.push(contact-item(
+        (text: author.orcid, icon: orcid-icon, link: author.orcid),
+        link-prefix: "https://orcid.org/",
+      ))
     }
     if "website" in author {
-      items.push(
-        contact-item(
-          (text: author.website, icon: website-icon, link: author.website),
-        ),
-      )
+      items.push(contact-item((
+        text: author.website,
+        icon: website-icon,
+        link: author.website,
+      )))
     }
     if "custom" in author and type(author.custom) == array {
       for item in author.custom {
         if "text" in item {
-          items.push(
-            contact-item(
-              (
-                text: item.text,
-                icon: if ("icon" in item) {
-                  box(fa-icon(item.icon, fill: color-darknight))
-                } else {
-                  none
-                },
-                link: if ("link" in item) {
-                  item.link
-                } else {
-                  none
-                },
-              ),
-              link-prefix: "",
+          items.push(contact-item(
+            (
+              text: item.text,
+              icon: if ("icon" in item) {
+                box(fa-icon(item.icon, fill: color-darknight))
+              } else {
+                none
+              },
+              link: if ("link" in item) {
+                item.link
+              } else {
+                none
+              },
             ),
-          )
+            link-prefix: "",
+          ))
         }
       }
     }
@@ -670,7 +658,9 @@
 #let default-signature(lang-data, language, author) = {
   align(bottom)[
     #pad(bottom: 2em)[
-      #text(weight: "light")[#linguify("sincerely", from: lang-data)#if (language != "de") [#sym.comma]] \
+      #text(weight: "light")[#linguify("sincerely", from: lang-data)#if (
+          language != "de"
+        ) [#sym.comma]] \
       #if ("signature" in author) {
         author.signature
       }
@@ -905,7 +895,6 @@
         }
       }
     }
-
 
     align(right)[
       #set text(size: 8pt, weight: "light", style: "normal")
