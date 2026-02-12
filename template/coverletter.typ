@@ -15,7 +15,7 @@
       "Software Engineer",
       "Full Stack Developer",
     ),
-    signature: image("./signature.png", format: "png", width: 150pt)
+    signature: image("./signature.png", format: "png", width: 150pt),
   ),
   profile-picture: image("./profile.png"),
   // change this to match the language available in 'lang.toml'
@@ -34,14 +34,12 @@
   keywords: "Software",
 )
 
-#hiring-entity-info(
-  entity-info: (
-    target: "Company Recruitement Team",
-    name: "Google, Inc.",
-    street-address: "1600 AMPHITHEATRE PARKWAY",
-    city: "MOUNTAIN VIEW, CA 94043",
-  ),
-)
+#hiring-entity-info(entity-info: (
+  target: "Company Recruitement Team",
+  name: "Google, Inc.",
+  street-address: "1600 AMPHITHEATRE PARKWAY",
+  city: "MOUNTAIN VIEW, CA 94043",
+))
 
 #letter-heading(job-position: "Software Engineer", addressee: "Sir or Madame")
 

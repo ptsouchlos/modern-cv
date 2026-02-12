@@ -107,28 +107,22 @@
 
 = Skills
 
-#resume-skill-item(
-  "Programming Languages",
-  (
-    strong("C++"),
-    strong("Python"),
-    "Rust",
-    "Java",
-    "C#",
-    "JavaScript",
-    "TypeScript",
-  ),
-)
+#resume-skill-item("Programming Languages", (
+  strong("C++"),
+  strong("Python"),
+  "Rust",
+  "Java",
+  "C#",
+  "JavaScript",
+  "TypeScript",
+))
 #resume-skill-item("Spoken Languages", (strong("English"), "Spanish"))
-#resume-skill-item(
-  "Programs",
-  (
-    strong("Excel"),
-    "Word",
-    "Powerpoint",
-    "Visual Studio",
-  ),
-)
+#resume-skill-item("Programs", (
+  strong("Excel"),
+  "Word",
+  "Powerpoint",
+  "Visual Studio",
+))
 // spacing fix, not needed if you use `resume-skill-grid`
 #block(below: 0.65em)
 

@@ -28,14 +28,12 @@
   keywords: "Software",
 )
 
-#hiring-entity-info(
-  entity-info: (
-    target: "Company Recruitement Team",
-    name: "Google, Inc.",
-    street-address: "1600 AMPHITHEATRE PARKWAY",
-    city: "MOUNTAIN VIEW, CA 94043",
-  ),
-)
+#hiring-entity-info(entity-info: (
+  target: "Company Recruitement Team",
+  name: "Google, Inc.",
+  street-address: "1600 AMPHITHEATRE PARKWAY",
+  city: "MOUNTAIN VIEW, CA 94043",
+))
 
 #letter-heading(job-position: "Software Engineer", addressee: "Sir or Madame")
 
