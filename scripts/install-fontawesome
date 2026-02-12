@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-wget -O ~/fontawesome.zip https://use.fontawesome.com/releases/v6.6.0/fontawesome-free-6.6.0-desktop.zip
+wget -O ~/fontawesome.zip https://github.com/FortAwesome/Font-Awesome/releases/download/7.2.0/fontawesome-free-7.2.0-desktop.zip
 mkdir -p ~/fontawesome-fonts
 unzip ~/fontawesome.zip -d ~/fontawesome-fonts
 mkdir -p ~/.fonts
