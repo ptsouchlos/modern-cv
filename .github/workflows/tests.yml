@@ -51,6 +51,8 @@ jobs:
         run: |
           sudo apt update
           sudo apt-get install fonts-roboto
+          chmod +x ./scripts/install-fontawesome
+          chmod +x ./scripts/install-source-sans
           ./scripts/install-fontawesome
           ./scripts/install-source-sans
           typst fonts
