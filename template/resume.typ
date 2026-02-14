@@ -134,7 +134,7 @@
 
 // An alternative way of list out your resume skills
 // #resume-skill-grid(
-//   categories_with_values: (
+//   categories-with-values: (
 //     "Programming Languages": (
 //       strong("C++"),
 //       strong("Python"),
