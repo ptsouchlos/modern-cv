@@ -499,13 +499,9 @@
       }
     }
 
-    align(center + horizon)[
+    align(center)[
       #set text(size: 9pt, weight: "regular", style: "normal")
-      #block[
-        #align(center + horizon)[
-          #items.join(contact-items-separator)
-        ]
-      ]
+      #items.join(contact-items-separator)
     ]
   }
 
