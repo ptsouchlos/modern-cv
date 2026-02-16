@@ -606,20 +606,16 @@
 /// Styling for resume skill categories.
 /// - category (string): The category
 #let resume-skill-category(category) = {
-  align(left)[
-    #set text(hyphenate: false)
-    == #category
-  ]
+  set text(size: 11pt, style: "normal", weight: "bold", hyphenate: false)
+  category
 }
 
 /// Styling for resume skill values/items
 /// - values (array): The skills to display
 #let resume-skill-values(values) = {
-  align(left)[
-    #set text(size: 11pt, style: "normal", weight: "light")
-    // This is a list so join by comma (,)
-    #values.join(", ")
-  ]
+  set text(size: 11pt, style: "normal", weight: "light")
+  // This is a list so join by comma (,)
+  values.join(", ")
 }
 
 /// Show a list of skills in the resume under a given category.
@@ -633,6 +629,7 @@
     #grid(
       columns: (3fr, 8fr),
       gutter: 10pt,
+      align: left + top,
       resume-skill-category(category), resume-skill-values(items),
     )
   ]
@@ -648,6 +645,7 @@
     #grid(
       columns: (auto, auto),
       gutter: 10pt,
+      align: left + top,
       ..categories-with-values
         .pairs()
         .map(((key, value)) => (
