@@ -49,11 +49,11 @@ jobs:
 
       - name: Install fonts
         run: |
-          sudo apt update
-          sudo apt-get install fonts-roboto
           chmod +x ./scripts/install-fontawesome
+          chmod +x ./scripts/install-roboto
           chmod +x ./scripts/install-source-sans
           ./scripts/install-fontawesome
+          ./scripts/install-roboto
           ./scripts/install-source-sans
           typst fonts
 
@@ -63,7 +63,7 @@ jobs:
       - name: Run test suite
         run: |
           just install
-          tt run --font-path ~/.fonts --no-fail-fast --warnings promote --use-system-fonts
+          tt run --font-path ~/.fonts --no-fail-fast --warnings promote
 
       - name: Archive diffs
         uses: actions/upload-artifact@v4

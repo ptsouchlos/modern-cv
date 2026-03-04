@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+wget -O ~/roboto.zip 'https://github.com/googlefonts/roboto-3-classic/releases/download/v3.015/Roboto_v3.015.zip'
+mkdir -p ~/.fonts
+unzip -j ~/roboto.zip 'unhinted/static/*.ttf' -d ~/.fonts
+rm ~/roboto.zip
+
+fc-cache -f -v
