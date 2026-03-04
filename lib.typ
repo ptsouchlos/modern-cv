@@ -833,8 +833,6 @@
   }
 
   let contacts = {
-    set box(height: 9pt)
-
     let separator = [ #box(sym.bar.v) ]
     let author_list = ()
 
