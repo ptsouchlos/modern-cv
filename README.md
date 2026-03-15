@@ -43,7 +43,7 @@ The following tools are used for the development of this template:
 You will need the `Roboto` and `Source Sans Pro` fonts installed on your system or available somewhere. If you are using the `typst` web app, no further action is necessary. You can download them from the following links:
 
 - [Roboto](https://fonts.google.com/specimen/Roboto)
-- [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro)
+- [Source Sans Pro](https://www.1001fonts.com/source-sans-pro-font.html)
 
 This template also uses FontAwesome icons via the [fontawesome](https://typst.app/universe/package/fontawesome) package. You will need to install the fontawesome fonts on your system or configure the `typst` web app to use them. You can download fontawesome [here](https://fontawesome.com/download).
 
