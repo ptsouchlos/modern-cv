@@ -233,15 +233,19 @@
       contact-item(
         (text: "@" + author.bluesky, icon: bluesky-icon, link: author.bluesky),
         link-prefix: "https://bsky.app/profile/",
-      )
+      ),
     )
   }
   if "mastodon" in author {
     items.push(
       contact-item(
-        (text: "@" + author.mastodon, icon: mastodon-icon, link: author.mastodon),
-        link-prefix: "https://mastodon.social/@"
-      )
+        (
+          text: "@" + author.mastodon,
+          icon: mastodon-icon,
+          link: author.mastodon,
+        ),
+        link-prefix: "https://mastodon.social/@",
+      ),
     )
   }
   if "scholar" in author {
@@ -398,7 +402,11 @@
 
   let desc = if description == none {
     (
-      lflib._linguify("resume", lang: language, from: lang_data).ok + " " + author.firstname + " " + author.lastname
+      lflib._linguify("resume", lang: language, from: lang_data).ok
+        + " "
+        + author.firstname
+        + " "
+        + author.lastname
     )
   } else {
     description
@@ -424,7 +432,12 @@
 
   set page(
     paper: paper-size,
-    margin: (left: 15mm, right: 15mm, top: 10mm, bottom: if show-footer { 20mm } else { 10mm }),
+    margin: (
+      left: 15mm,
+      right: 15mm,
+      top: 10mm,
+      bottom: if show-footer { 20mm } else { 10mm },
+    ),
     footer: if show-footer [#__resume_footer(
       author,
       language,
@@ -496,10 +509,13 @@
     align(center)[
       #if ("address" in author) [
         #if show-address-icon [
-          #__contact_item((
-            icon: address-icon,
-            text: text(author.address),
-          ), inset: contact-items-inset)
+          #__contact_item(
+            (
+              icon: address-icon,
+              text: text(author.address),
+            ),
+            inset: contact-items-inset,
+          )
         ] else [
           #text(author.address)
         ]
@@ -675,7 +691,9 @@
 #let default-signature(lang-data, language, author) = {
   align(bottom)[
     #pad(bottom: 2em)[
-      #text(weight: "light")[#linguify("sincerely", from: lang-data)#if (language != "de") [#sym.comma]] \
+      #text(weight: "light")[#linguify("sincerely", from: lang-data)#if (
+          language != "de"
+        ) [#sym.comma]] \
       #if ("signature" in author) {
         author.signature
       }
@@ -761,7 +779,9 @@
   show: body => context {
     set document(
       author: author.firstname + " " + author.lastname,
-      title: lflib._linguify("cover-letter", lang: language, from: lang_data).ok,
+      title: lflib
+        ._linguify("cover-letter", lang: language, from: lang_data)
+        .ok,
       description: desc,
       keywords: keywords,
     )
@@ -778,7 +798,12 @@
 
   set page(
     paper: paper-size,
-    margin: (left: 15mm, right: 15mm, top: 10mm, bottom: if show-footer { 20mm } else { 10mm }),
+    margin: (
+      left: 15mm,
+      right: 15mm,
+      top: 10mm,
+      bottom: if show-footer { 20mm } else { 10mm },
+    ),
     footer: if show-footer [#__coverletter_footer(
       author,
       language,
@@ -838,10 +863,13 @@
     align(right)[
       #if ("address" in author) [
         #if show-address-icon [
-          #__contact_item((
-            icon: address-icon,
-            text: text(author.address),
-          ), inset: contact-items-inset)
+          #__contact_item(
+            (
+              icon: address-icon,
+              text: text(author.address),
+            ),
+            inset: contact-items-inset,
+          )
         ] else [
           #text(author.address)
         ]
