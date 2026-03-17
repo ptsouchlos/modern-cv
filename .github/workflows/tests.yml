@@ -63,7 +63,7 @@ jobs:
       - name: Run test suite
         run: |
           just install
-          tt run --font-path ~/.fonts --no-fail-fast --warnings promote
+          tt run --font-path ~/.local/share/fonts --no-fail-fast --warnings promote
 
       - name: Archive diffs
         uses: actions/upload-artifact@v4
