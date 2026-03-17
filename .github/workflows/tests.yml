@@ -7,15 +7,6 @@ on:
 
 jobs:
   tests:
-    strategy:
-      matrix:
-        # add any other Typst versions that your package should support
-        typst-version: ["0.12", "0.13", "0.14"]
-        # the docs don't need to build with all versions supported by the package;
-        # the latest one is enough
-        include:
-          - typst-version: "0.14"
-            doc: 1
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -42,11 +33,6 @@ jobs:
         with:
           tool: tytanic@0.3.3
 
-      - name: Setup typst
-        uses: typst-community/setup-typst@v5
-        with:
-          typst-version: ${{ matrix.typst-version }}
-
       - name: Install fonts
         run: |
           chmod +x ./scripts/install-fontawesome
@@ -55,7 +41,6 @@ jobs:
           ./scripts/install-fontawesome
           ./scripts/install-roboto
           ./scripts/install-source-sans
-          typst fonts
 
       - name: Uninstall previous local install
         run: just uninstall
@@ -71,15 +56,17 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: diffs-typst-${{ matrix.typst-version }}
+          name: diffs-typst
           path: |
             tests/**/diff/*.png
             tests/**/out/*.png
             tests/**/ref/*.png
           retention-days: 5
 
+      - name: Setup typst
+        uses: typst-community/setup-typst@v5
+
       - name: Build docs
-        if: ${{ matrix.doc }}
         run: just doc
 
       - name: Upload docs
