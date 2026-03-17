@@ -60,9 +60,11 @@ jobs:
       - name: Uninstall previous local install
         run: just uninstall
 
+      - name: Show test runner fonts
+        run: tt util fonts --use-system-fonts
+
       - name: Run test suite
         run: |
-          just install
           just test
 
       - name: Archive diffs
