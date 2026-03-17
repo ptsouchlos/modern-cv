@@ -47,6 +47,8 @@ You will need the `Roboto` and `Source Sans Pro` fonts installed on your system 
 
 This template also uses FontAwesome icons via the [fontawesome](https://typst.app/universe/package/fontawesome) package. You will need to install the fontawesome fonts on your system or configure the `typst` web app to use them. You can download fontawesome [here](https://fontawesome.com/download).
 
+As an alternative, you can use the scripts in the `scripts/` folder of the project to install all needed fonts. These fonts have been tested on Linux but may also work on macOS. Your mileage, however, will vary.
+
 To use the fontawesome icons in the web app, add a `fonts` folder to your project and upload the `otf` files from the fontawesome download to this folder like so:
 
 ![alt text](assets/images/typst_web_editor.png)
