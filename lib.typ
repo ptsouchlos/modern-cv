@@ -715,6 +715,7 @@
 /// Cover letter template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template.
 /// This coverletter template is designed to be used with the resume template.
 /// - author (dictionary): Structure that takes in all the author's information. The following fields are required: firstname, lastname, positions. The following fields are used if available: email, phone, github, linkedin, orcid, address, website, custom. The `custom` field is an array of additional entries with the following fields: text (string, required), icon (string, optional Font Awesome icon name), link (string, optional).
+/// - heading-padding (dictionary): Padding of the salutation line.
 /// - signature-padding (dictionary): Padding of the signature.
 /// - signature-alignment (alignment): Alignment of the signature.
 /// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
@@ -736,6 +737,7 @@
   profile-picture: image,
   contact-items-separator: box(width: 6pt, align(center, sym.bar.v)),
   contact-items-inset: (:),
+  heading-padding: (above: 2em, below: 1em),
   signature-padding: (top: 1em),
   signature-alignment: left,
   date: datetime.today().display("[month repr:long] [day], [year]"),
@@ -829,8 +831,7 @@
 
   set heading(numbering: none, outlined: false)
 
-  show heading: it => [
-    #set block(above: 1em, below: 1em)
+  show heading: it => block(..heading-padding)[
     #set text(size: 16pt, weight: "regular")
 
     #align(left)[
