@@ -712,12 +712,15 @@
   ]
 }
 
+#let default-par = (spacing: 0.75em, justify: true)
+
 /// Cover letter template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template.
 /// This coverletter template is designed to be used with the resume template.
 /// - author (dictionary): Structure that takes in all the author's information. The following fields are required: firstname, lastname, positions. The following fields are used if available: email, phone, github, linkedin, orcid, address, website, custom. The `custom` field is an array of additional entries with the following fields: text (string, required), icon (string, optional Font Awesome icon name), link (string, optional).
 /// - heading-padding (dictionary): Padding of the salutation line.
 /// - signature-padding (dictionary): Padding of the signature.
 /// - signature-alignment (alignment): Alignment of the signature.
+/// - par-spacing (length): Spacing between paragraphs of the letter content.
 /// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
 /// - date (datetime): The date the cover letter was created. This will default to the current date.
 /// - accent-color (color): The accent color of the cover letter
@@ -740,6 +743,7 @@
   heading-padding: (above: 2em, below: 1em),
   signature-padding: (top: 1em),
   signature-alignment: left,
+  par-spacing: 1.5em,
   date: datetime.today().display("[month repr:long] [day], [year]"),
   accent-color: default-accent-color,
   language: "en",
@@ -827,7 +831,7 @@
   )
 
   // set paragraph spacing
-  set par(spacing: 0.75em, justify: true)
+  set par(..default-par)
 
   set heading(numbering: none, outlined: false)
 
@@ -920,7 +924,11 @@
 
   // actual content
   letter-heading
-  body
+  {
+    set par(spacing: par-spacing)
+    set text(weight: "light")
+    body
+  }
   linebreak()
   signature
   closing
@@ -934,7 +942,7 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
   use-smallcaps: true,
 ) = {
-  set par(leading: 1em)
+  set par(leading: 1em, ..default-par)
   pad(top: 1.5em, bottom: 1.5em)[
     #__justify_align[
       #text(weight: "bold", size: 12pt)[#entity-info.target]
@@ -963,6 +971,7 @@
   dear: "",
   padding: (top: 1em, bottom: 1em),
 ) = {
+  set par(..default-par)
   let lang_data = toml("lang.toml")
 
   // TODO: Make this adaptable to content
@@ -981,16 +990,6 @@
       ]
       #addressee,
     ]
-  ]
-}
-
-/// Cover letter content paragraph. This is the main content of the cover letter.
-/// - content (content): The content of the cover letter
-#let coverletter-content(content) = {
-  pad(top: 1em, bottom: 1em)[
-    #set par(first-line-indent: 3em)
-    #set text(weight: "light")
-    #content
   ]
 }
 

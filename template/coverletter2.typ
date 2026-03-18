@@ -39,14 +39,8 @@
 
 #letter-heading(job-position: "Software Engineer", addressee: "Sir or Madame")
 
-#coverletter-content[
-  #lorem(100)
-]
+#lorem(100)
 
-#coverletter-content[
-  #lorem(90)
-]
+#lorem(90)
 
-#coverletter-content[
-  #lorem(110)
-]
+#lorem(110)

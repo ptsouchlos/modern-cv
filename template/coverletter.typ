@@ -46,16 +46,10 @@
 #letter-heading(job-position: "Software Engineer", addressee: "Sir or Madame")
 
 = About Me
-#coverletter-content[
-  #lorem(80)
-]
+#lorem(80)
 
 = Why Google?
-#coverletter-content[
-  #lorem(90)
-]
+#lorem(90)
 
 = Why Me?
-#coverletter-content[
-  #lorem(100)
-]
+#lorem(100)
