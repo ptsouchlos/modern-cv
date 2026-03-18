@@ -929,7 +929,6 @@
     set text(weight: "light")
     body
   }
-  linebreak()
   signature
   closing
 }
