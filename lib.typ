@@ -365,6 +365,7 @@
 /// - author (dictionary): Structure that takes in all the author's information
 /// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
 /// - contact-items-separator (content): Separator to use between the "contact" items in the header of the resume. This includes items like your email, website, Github account, phone number and so on. The default is blank spacing.
+/// - contact-items-inset (dictionary): Gap between contact item icon and contact item text.
 /// - date (string): The date the resume was created
 /// - accent-color (color): The accent color of the resume
 /// - colored-headers (boolean): Whether the headers should be colored or not
@@ -722,6 +723,8 @@
 /// - signature-alignment (alignment): Alignment of the signature.
 /// - par-spacing (length): Spacing between paragraphs of the letter content.
 /// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
+/// - contact-items-separator (content): Separator to use between the "contact" items in the header of the coverletter. This includes items like your email, website, Github account, phone number and so on. The default is blank spacing.
+/// - contact-items-inset (dictionary): Gap between contact item icon and contact item text.
 /// - date (datetime): The date the cover letter was created. This will default to the current date.
 /// - accent-color (color): The accent color of the cover letter
 /// - language (string): The language of the cover letter, defaults to "en". See lang.toml for available languages
