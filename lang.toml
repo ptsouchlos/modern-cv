@@ -81,3 +81,12 @@ attached = "Allegato"
 curriculum-vitae = "Curriculum Vitae"
 sincerely = "Cordiali saluti"
 letter-position-pretext = "Domanda di lavoro per"
+
+[lang.nl]
+resume = "CV"
+dear = "Geachte"
+cover-letter = "Sollicitatiebrief
+attached = "Bijgevoegd"
+curriculum-vitae = "Curriculum Vitae"
+sincerely = "Met vriendelijke groet"
+letter-position-pretext = "Sollicitatie voor"
