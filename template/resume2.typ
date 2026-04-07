@@ -33,17 +33,17 @@
   ),
   keywords: ("Engineer", "Architect"),
   description: "John complete resume",
-  profile-picture: image("profile.png"),
+  profile-picture: image("/assets/images/logo.jpg"),
   date: datetime.today().display(),
   language: "en",
   colored-headers: true,
   show-footer: false,
   show-address-icon: true,
+  font: "Montserrat", // Comment out if you don't have this font
   paper-size: "us-letter",
   contact-items-separator: box[#h(2pt)#text("|")#h(2pt)],
 )
 
-#include "sections/projects.typ"
 #include "sections/experience.typ"
+#include "sections/projects.typ"
 #include "sections/skills.typ"
-#include "sections/education.typ"
