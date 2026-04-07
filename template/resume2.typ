@@ -39,7 +39,7 @@
   colored-headers: true,
   show-footer: false,
   show-address-icon: true,
-  font: "Montserrat", // Comment out if you don't have this font
+  // font: "Montserrat",
   paper-size: "us-letter",
   contact-items-separator: box[#h(2pt)#text("|")#h(2pt)],
 )

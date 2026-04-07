@@ -8,7 +8,7 @@ tmp_prefix="/tmp/modern_cv_header"
 
 # Compile resume with logo to full-page PNG (natural typst output: 1224px wide at 144ppi)
 typst compile -f png --root "$root_dir" \
-  "$root_dir/template/resume_with_logo.typ" \
+  "$root_dir/template/resume2.typ" \
   "${tmp_prefix}_{p}.png"
 
 # Crop the top portion of page 1 (1224x497 shows header + start of experience)
