@@ -10,6 +10,7 @@
 
 // const icons
 #let linkedin-icon = box(fa-icon("linkedin", fill: color-darknight))
+#let telegram-icon = box(fa-icon("telegram", fill: color-darknight))
 #let github-icon = box(fa-icon("github", fill: color-darknight))
 #let gitlab-icon = box(fa-icon("gitlab", fill: color-darknight))
 #let bitbucket-icon = box(fa-icon("bitbucket", fill: color-darknight))
@@ -225,6 +226,14 @@
       contact-item(
         (text: "@" + author.twitter, icon: twitter-icon, link: author.twitter),
         link-prefix: "https://twitter.com/",
+      ),
+    )
+  }
+  if "telegram" in author {
+    items.push(
+      contact-item(
+        (text: "@" + author.telegram, icon: telegram-icon, link: author.telegram),
+        link-prefix: "https://t.me/",
       ),
     )
   }
