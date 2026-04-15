@@ -7,7 +7,7 @@ root_dir="$script_dir/.."
 tmp_prefix="/tmp/modern_cv_header"
 
 # Compile resume with logo to full-page PNG (natural typst output: 1224px wide at 144ppi)
-typst compile -f png --root "$root_dir" \
+typst compile -f png \
   "$root_dir/template/resume2.typ" \
   "${tmp_prefix}_{p}.png"
 
