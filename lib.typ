@@ -232,7 +232,11 @@
   if "telegram" in author {
     items.push(
       contact-item(
-        (text: "@" + author.telegram, icon: telegram-icon, link: author.telegram),
+        (
+          text: "@" + author.telegram,
+          icon: telegram-icon,
+          link: author.telegram,
+        ),
         link-prefix: "https://t.me/",
       ),
     )
