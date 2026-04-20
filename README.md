@@ -1,13 +1,13 @@
 <h1 align="center">
-  <img src="assets/images/header.png" alt="Header">
+  <img src="assets/images/header.png" alt="Snippet of resume template">
   <br><br>
   Modern CV
 </h1>
 
 [![say thanks](https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg)](https://github.com/ptsouchlos/modern-cv/stargazers)
-[![Discord](https://img.shields.io/discord/652515194572111872?logo=Discord)](https://discord.gg/CX2ybByRnt)
-![Release](https://img.shields.io/github/v/release/ptsouchlos/modern-cv)
-[![Tests](https://github.com/ptsouchlos/modern-cv/actions/workflows/tests.yml/badge.svg)](https://github.com/ptsouchlos/modern-cv/actions/workflows/tests.yml)  
+[![Discord logo](https://img.shields.io/discord/652515194572111872?logo=Discord)](https://discord.gg/CX2ybByRnt)
+![Latest release button](https://img.shields.io/github/v/release/ptsouchlos/modern-cv)
+[![Test CI badge](https://github.com/ptsouchlos/modern-cv/actions/workflows/tests.yml/badge.svg)](https://github.com/ptsouchlos/modern-cv/actions/workflows/tests.yml)
 
 A port of the [Awesome-CV](https://github.com/posquit0/Awesome-CV) Latex resume template in [typst](https://github.com/typst/typst).
 
@@ -22,10 +22,10 @@ A port of the [Awesome-CV](https://github.com/posquit0/Awesome-CV) Latex resume 
 
 ## Preview
 
-| Resumes | Cover letters |
-| --- | --- |
-| ![Resume](assets/images/resume.png) | ![Cover Letter](assets/images/coverletter.png) |
-| ![Resume 2](assets/images/resume2.png) | ![Cover Letter 2](assets/images/coverletter2.png)|
+| Resumes                                                | Cover letters                                                     |
+| ------------------------------------------------------ | ----------------------------------------------------------------- |
+| ![Resume template output](assets/images/resume.png)    | ![Cover Letter template output](assets/images/coverletter.png)    |
+| ![Resume 2 template output](assets/images/resume2.png) | ![Cover Letter 2 template output](assets/images/coverletter2.png) |
 
 ## Requirements
 
@@ -60,13 +60,13 @@ See `typst fonts --help` for more information on configuring fonts for `typst` t
 Below is a basic example for a simple resume:
 
 ```typst
-#import "@preview/modern-cv:0.9.0": *
+#import "@preview/modern-cv:0.10.0": *
 
 #show: resume.with(
   author: (
-      firstname: "John", 
+      firstname: "John",
       lastname: "Smith",
-      email: "js@example.com", 
+      email: "js@example.com",
       phone: "(+1) 111-111-1111",
       github: "ptsouchlos",
       linkedin: "Example",
@@ -93,7 +93,7 @@ Below is a basic example for a simple resume:
 #resume-item[
   - #lorem(20)
   - #lorem(15)
-  - #lorem(25)  
+  - #lorem(25)
 ]
 ```
 
@@ -114,8 +114,8 @@ To build and test the project locally, you will need to install the `typst` CLI.
 With typst installed you can make changes to `lib.typ` and then `just install` or `just install-preview` to install the package locally. Change the import statements in the template files to point to the local package (if needed):
 
 ```typst
-#import "@local/modern-cv:0.9.0": *
-````
+#import "@local/modern-cv:0.10.0": *
+```
 
 If you use `just install-preview` you will only need to update the version number to match `typst.toml`.
 
@@ -131,5 +131,5 @@ The project is licensed under the MIT license. See [LICENSE](LICENSE) for more d
 
 ## Author
 
-| [<img src="https://avatars0.githubusercontent.com/u/6591180?s=460&v=4" width="100"><br><sub>@ptsouchlos</sub>](https://github.com/ptsouchlos) |
-|:----:|
+| [<img src="https://avatars0.githubusercontent.com/u/6591180?s=460&v=4" width="100" alt="Author gravitar"><br><sub>@ptsouchlos</sub>](https://github.com/ptsouchlos) |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: |

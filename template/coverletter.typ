@@ -1,4 +1,4 @@
-#import "@preview/modern-cv:0.9.0": *
+#import "@preview/modern-cv:0.10.0": *
 
 #show: coverletter.with(
   author: (
@@ -15,9 +15,9 @@
       "Software Engineer",
       "Full Stack Developer",
     ),
-    signature: image("./signature.png", format: "png", width: 150pt),
+    signature: image("assets/signature.png", format: "png", width: 150pt),
   ),
-  profile-picture: image("./profile.png"),
+  profile-picture: image("assets/profile.png"),
   // change this to match the language available in 'lang.toml'
   language: "en",
   font: "Times New Roman",

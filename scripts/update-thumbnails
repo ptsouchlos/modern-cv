@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+script_dir=$(dirname "$0")
+
+typst compile -f png $script_dir/../template/resume.typ --pages 1 $script_dir/../assets/images/resume.png
+typst compile -f png $script_dir/../template/resume2.typ --pages 1 $script_dir/../assets/images/resume2.png
+typst compile -f png $script_dir/../template/coverletter.typ $script_dir/../assets/images/coverletter.png
+typst compile -f png $script_dir/../template/coverletter2.typ $script_dir/../assets/images/coverletter2.png
+
+oxipng $script_dir/../assets/images/*.png

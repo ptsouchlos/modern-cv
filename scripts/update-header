@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -eu
+
+script_dir=$(dirname "$0")
+root_dir="$script_dir/.."
+tmp_prefix="/tmp/modern_cv_header"
+
+# Compile resume with logo to full-page PNG (natural typst output: 1224px wide at 144ppi)
+typst compile -f png \
+  "$root_dir/template/resume2.typ" \
+  "${tmp_prefix}_{p}.png"
+
+# Crop the top portion of page 1 (1224x497 shows header + start of experience)
+magick "${tmp_prefix}_1.png" \
+  -gravity North -crop 1224x497+0+0 +repage \
+  "${tmp_prefix}_card.png"
+
+# Apply rounded corners (20px radius) via alpha mask
+magick "${tmp_prefix}_card.png" -alpha set \
+  \( -size 1224x497 xc:none \
+     -fill white -draw "roundrectangle 0,0,1223,496,20,20" \) \
+  -compose DstIn -composite \
+  "${tmp_prefix}_card_rounded.png"
+
+# Create 1310x533 horizontal gradient background: grey (#bbbbbb) left → dark navy (#3d4b65) right
+magick -size 533x1310 gradient:"#bbbbbb-#3d4b65" -rotate 90 \
+  "${tmp_prefix}_bg.png"
+
+# Composite card onto background (43px left/right margin, 18px top/bottom margin)
+magick "${tmp_prefix}_bg.png" "${tmp_prefix}_card_rounded.png" \
+  -gravity NorthWest -geometry +43+18 -compose Over -composite \
+  -depth 8 \
+  "$root_dir/assets/images/header.png"
+
+# Optimize
+oxipng "$root_dir/assets/images/header.png"
+
+# Clean up
+rm -f "${tmp_prefix}"_*.png
