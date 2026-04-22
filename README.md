@@ -70,6 +70,7 @@ Below is a basic example for a simple resume:
       phone: "(+1) 111-111-1111",
       github: "ptsouchlos",
       linkedin: "Example",
+      telegram: "durov",
       address: "111 Example St. Example City, EX 11111",
       positions: (
         "Software Engineer",
