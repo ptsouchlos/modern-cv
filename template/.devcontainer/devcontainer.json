@@ -1,0 +1,21 @@
+{
+  "name": "Typst Devcontainer",
+  "context": "..",
+  "dockerFile": "Dockerfile",
+  "remoteUser": "typst",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // FIXME: tinymist 0.14.16 has issues, update only once it's fixed
+        // (see https://github.com/Myriad-Dreamin/tinymist/issues/2487)
+        "myriad-dreamin.tinymist@0.14.10",
+        // Spell checker
+        "elijah-potter.harper@2.0.0"
+      ]
+    }
+  }
+}
