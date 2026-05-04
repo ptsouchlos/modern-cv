@@ -559,7 +559,6 @@
     grid(
       columns: (1fr, auto),
       gutter: 10pt,
-      rows: 100pt,
       align: horizon,
       header-content,
       block(
