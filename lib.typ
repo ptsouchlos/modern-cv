@@ -377,6 +377,7 @@
 ///
 /// - author (dictionary): Structure that takes in all the author's information
 /// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
+/// - profile-picture-diameter (length): The diameter of the profile picture.
 /// - contact-items-separator (content): Separator to use between the "contact" items in the header of the resume. This includes items like your email, website, Github account, phone number and so on. The default is blank spacing.
 /// - contact-items-inset (dictionary): Gap between contact item icon and contact item text.
 /// - date (string): The date the resume was created
@@ -392,6 +393,7 @@
 #let resume(
   author: (:),
   profile-picture: image,
+  profile-picture-diameter: 4cm,
   contact-items-separator: h(10pt),
   contact-items-inset: (left: 4pt),
   date: datetime.today().display("[month repr:long] [day], [year]"),
@@ -546,33 +548,30 @@
     align(center, items.join(contact-items-separator))
   }
 
+  let header-content = [
+    #name
+    #positions
+    #address
+    #contacts
+  ]
+
   if profile-picture != none {
     grid(
-      columns: (100% - 4cm, 4cm),
-      rows: 100pt,
+      columns: (1fr, auto),
       gutter: 10pt,
-      [
-        #name
-        #positions
-        #address
-        #contacts
-      ],
-      align(left + horizon)[
-        #block(
-          clip: true,
-          stroke: 0pt,
-          radius: 2cm,
-          width: 4cm,
-          height: 4cm,
-          profile-picture,
-        )
-      ],
+      align: horizon,
+      header-content,
+      block(
+        clip: true,
+        stroke: 0pt,
+        radius: profile-picture-diameter / 2,
+        width: profile-picture-diameter,
+        height: profile-picture-diameter,
+        profile-picture,
+      ),
     )
   } else {
-    name
-    positions
-    address
-    contacts
+    header-content
   }
 
   body
