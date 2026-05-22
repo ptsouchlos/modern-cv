@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.6.0": *
+#import "@preview/fontawesome:0.6.1": *
 #import "@preview/linguify:0.5.0": *
 
 // const color
@@ -13,6 +13,7 @@
 #let telegram-icon = box(fa-icon("telegram", fill: color-darknight))
 #let github-icon = box(fa-icon("github", fill: color-darknight))
 #let gitlab-icon = box(fa-icon("gitlab", fill: color-darknight))
+#let forgejo-icon = box(fa-icon("forgejo", fill: color-darknight))
 #let bitbucket-icon = box(fa-icon("bitbucket", fill: color-darknight))
 #let twitter-icon = box(fa-icon("twitter", fill: color-darknight))
 #let bluesky-icon = box(fa-icon("bluesky", fill: color-darknight))
@@ -25,7 +26,6 @@
 #let homepage-icon = box(fa-icon("home", fill: color-darknight))
 #let website-icon = box(fa-icon("globe", fill: color-darknight))
 #let address-icon = box(fa-icon("location-crosshairs", fill: color-darknight))
-
 
 /// Helpers
 
@@ -206,6 +206,22 @@
       contact-item(
         (text: author.bitbucket, icon: bitbucket-icon, link: author.bitbucket),
         link-prefix: "https://bitbucket.org/",
+      ),
+    )
+  }
+  if "codeberg" in author {
+    items.push(
+      contact-item(
+        (text: author.codeberg, icon: forgejo-icon, link: author.codeberg),
+        link-prefix: "https://codeberg.org/",
+      ),
+    )
+  }
+  if "sourcehut" in author {
+    items.push(
+      contact-item(
+        (text: author.sourcehut, icon: forgejo-icon, link: author.sourcehut),
+        link-prefix: "https://sr.ht/~",
       ),
     )
   }
