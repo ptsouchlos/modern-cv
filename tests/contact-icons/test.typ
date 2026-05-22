@@ -1,4 +1,4 @@
-#import "@local/modern-cv:0.10.0": *
+#import "@local/modern-cv:0.11.0": *
 
 #show: resume.with(
   author: (

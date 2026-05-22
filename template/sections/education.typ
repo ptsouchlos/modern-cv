@@ -1,4 +1,4 @@
-#import "@preview/modern-cv:0.10.0": *
+#import "@preview/modern-cv:0.11.0": *
 
 = Education
 
