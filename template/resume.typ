@@ -11,7 +11,6 @@
     gitlab: "ptsouchlos",
     bitbucket: "DeveloperPaul123",
     codeberg: "ptsou",
-    sourcehut: "example",
     twitter: "typstapp",
     bluesky: "ptsou.bsky.social",
     mastodon: "devpaul",
