@@ -217,14 +217,6 @@
       ),
     )
   }
-  if "sourcehut" in author {
-    items.push(
-      contact-item(
-        (text: author.sourcehut, icon: forgejo-icon, link: author.sourcehut),
-        link-prefix: "https://sr.ht/~",
-      ),
-    )
-  }
   if "linkedin" in author {
     items.push(
       contact-item(
