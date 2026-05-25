@@ -90,3 +90,12 @@ attached = "Bijgevoegd"
 curriculum-vitae = "Curriculum Vitae"
 sincerely = "Met vriendelijke groet"
 letter-position-pretext = "Sollicitatie voor"
+
+[lang.sv]
+resume = "CV"
+dear = "Bästa"
+cover-letter = "Personligt brev"
+attached = "Bifogat"
+curriculum-vitae = "Curriculum Vitae"
+sincerely = "Med vänlig hälsning"
+letter-position-pretext = "Ansökan till"
