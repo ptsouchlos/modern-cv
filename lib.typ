@@ -391,7 +391,7 @@
 /// - accent-color (color): The accent color of the resume
 /// - colored-headers (boolean): Whether the headers should be colored or not
 /// - language (string): The language of the resume, defaults to "en". See lang.toml for available languages
-/// - margin (dictionary): The margin values for the resume. Note: when show-footer is true, 10mm is added to the bottom margin to accommodate the footer.
+/// - margins (dictionary): The margin values for the resume. Note: when show-footer is true, 10mm is added to the bottom margin to accommodate the footer.
 /// - use-smallcaps (boolean): Whether to use small caps formatting throughout the template
 /// - show-address-icon (boolean): Whether to show the address icon
 /// - description (str | none): The PDF description
@@ -411,7 +411,7 @@
   font: ("Source Sans 3", "Source Sans Pro"),
   header-font: "Roboto",
   paper-size: "a4",
-  margin: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
+  margins: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
   use-smallcaps: true,
   show-address-icon: false,
   description: none,
@@ -457,10 +457,10 @@
   set page(
     paper: paper-size,
     margin: (
-      left: margin.left,
-      right: margin.right,
-      top: margin.top,
-      bottom: if show-footer { margin.bottom + 10mm } else { margin.bottom },
+      left: margins.left,
+      right: margins.right,
+      top: margins.top,
+      bottom: if show-footer { margins.bottom + 10mm } else { margins.bottom },
     ),
     footer: if show-footer [#__resume_footer(
       author,
@@ -751,7 +751,7 @@
 /// - date (datetime): The date the cover letter was created. This will default to the current date.
 /// - accent-color (color): The accent color of the cover letter
 /// - language (string): The language of the cover letter, defaults to "en". See lang.toml for available languages
-/// - margin (dictionary): The margin values for the cover letter. Note: when show-footer is true, 10mm is added to the bottom margin to accommodate the footer.
+/// - margins (dictionary): The margin values for the cover letter. Note: when show-footer is true, 10mm is added to the bottom margin to accommodate the footer.
 /// - font (array): The font families of the cover letter
 /// - header-font (array): The font families of the cover letter header
 /// - show-footer (boolean): Whether to show the footer or not
@@ -780,7 +780,7 @@
   signature: none,
   closing: none,
   paper-size: "a4",
-  margin: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
+  margins: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
   use-smallcaps: true,
   show-address-icon: false,
   description: none,
@@ -843,10 +843,10 @@
   set page(
     paper: paper-size,
     margin: (
-      left: margin.left,
-      right: margin.right,
-      top: margin.top,
-      bottom: if show-footer { margin.bottom + 10mm } else { margin.bottom },
+      left: margins.left,
+      right: margins.right,
+      top: margins.top,
+      bottom: if show-footer { margins.bottom + 10mm } else { margins.bottom },
     ),
     footer: if show-footer [#__coverletter_footer(
       author,
