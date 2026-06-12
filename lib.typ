@@ -606,8 +606,8 @@
 /// - title-link (string): The link to use for the title (can be none)
 /// - accent-color (color): Override the accent color of the resume-entry
 /// - location-color (color): Override the default color of the "location" for a resume entry.
-/// - above (length): Override the space above the resume entry block (default: 1em)
-/// - below (length): Override the space below the resume entry block (default: 0.65em)
+/// - spacing-above (length): Override the space above the resume entry block (default: 1em)
+/// - spacing-below (length): Override the space below the resume entry block (default: 0.65em)
 #let resume-entry(
   title: none,
   location: "",
@@ -616,8 +616,8 @@
   title-link: none,
   accent-color: default-accent-color,
   location-color: default-location-color,
-  above: 1em,
-  below: 0.65em,
+  spacing-above: 1em,
+  spacing-below: 0.65em,
 ) = {
   let title-content
   if type(title-link) == str {
@@ -625,7 +625,7 @@
   } else {
     title-content = title
   }
-  block(above: above, below: below, sticky: true)[
+  block(above: spacing-above, below: spacing-below, sticky: true)[
     #pad[
       #justified-header(title-content, location)
       #if description != "" or date != "" [
