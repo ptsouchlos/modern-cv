@@ -408,7 +408,7 @@
   colored-headers: true,
   show-footer: true,
   language: "en",
-  font: ("Source Sans 3", "Source Sans Pro"),
+  font: "Source Sans 3",
   header-font: "Roboto",
   paper-size: "a4",
   margins: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
@@ -426,11 +426,7 @@
 
   let desc = if description == none {
     (
-      lflib._linguify("resume", lang: language, from: lang_data).ok
-        + " "
-        + author.firstname
-        + " "
-        + author.lastname
+      lflib._linguify("resume", lang: language, from: lang_data).ok + " " + author.firstname + " " + author.lastname
     )
   } else {
     description
@@ -778,7 +774,7 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
   accent-color: default-accent-color,
   language: "en",
-  font: ("Source Sans 3", "Source Sans Pro"),
+  font: "Source Sans 3",
   header-font: "Roboto",
   show-footer: true,
   signature: none,
@@ -827,9 +823,7 @@
   show: body => context {
     set document(
       author: author.firstname + " " + author.lastname,
-      title: lflib
-        ._linguify("cover-letter", lang: language, from: lang_data)
-        .ok,
+      title: lflib._linguify("cover-letter", lang: language, from: lang_data).ok,
       description: desc,
       keywords: keywords,
     )
