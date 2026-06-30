@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.6.1": *
+#import "@preview/fontawesome:0.6.2": *
 #import "@preview/linguify:0.5.0": *
 
 // const color
@@ -15,6 +15,7 @@
 #let gitlab-icon = box(fa-icon("gitlab", fill: color-darknight))
 #let forgejo-icon = box(fa-icon("forgejo", fill: color-darknight))
 #let bitbucket-icon = box(fa-icon("bitbucket", fill: color-darknight))
+#let codeberg-icon = box(fa-icon("codeberg", fill: color-darknight))
 #let twitter-icon = box(fa-icon("twitter", fill: color-darknight))
 #let bluesky-icon = box(fa-icon("bluesky", fill: color-darknight))
 #let mastodon-icon = box(fa-icon("mastodon", fill: color-darknight))
@@ -212,7 +213,7 @@
   if "codeberg" in author {
     items.push(
       contact-item(
-        (text: author.codeberg, icon: forgejo-icon, link: author.codeberg),
+        (text: author.codeberg, icon: codeberg-icon, link: author.codeberg),
         link-prefix: "https://codeberg.org/",
       ),
     )
