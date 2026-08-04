@@ -13,6 +13,7 @@
     twitter: "typstapp",
     bluesky: "ptsou.bsky.social",
     mastodon: "devpaul",
+    codeberg: "ptsou",
     scholar: "",
     orcid: "0000-0000-0000-000X",
     birth: "January 1, 1990",
