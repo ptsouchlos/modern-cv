@@ -426,7 +426,11 @@
 
   let desc = if description == none {
     (
-      lflib._linguify("resume", lang: language, from: lang_data).ok + " " + author.firstname + " " + author.lastname
+      lflib._linguify("resume", lang: language, from: lang_data).ok
+        + " "
+        + author.firstname
+        + " "
+        + author.lastname
     )
   } else {
     description
@@ -823,7 +827,9 @@
   show: body => context {
     set document(
       author: author.firstname + " " + author.lastname,
-      title: lflib._linguify("cover-letter", lang: language, from: lang_data).ok,
+      title: lflib
+        ._linguify("cover-letter", lang: language, from: lang_data)
+        .ok,
       description: desc,
       keywords: keywords,
     )
