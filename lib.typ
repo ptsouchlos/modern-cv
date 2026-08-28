@@ -39,6 +39,35 @@
   }
 }
 
+// Locale-appropriate date display patterns, keyed by the same language
+// codes used in lang.toml. See the `datetime.display()` docs for the
+// pattern syntax: https://typst.app/docs/reference/foundations/datetime/#format
+#let __date-formats = (
+  en: "[month repr:long] [day], [year]",
+  de: "[day].[month].[year]",
+  gr: "[day]/[month]/[year]",
+  pt: "[day]/[month]/[year]",
+  sp: "[day]/[month]/[year]",
+  fr: "[day]/[month]/[year]",
+  ru: "[day].[month].[year]",
+  zh: "[year]年[month]月[day]日",
+  it: "[day]/[month]/[year]",
+  nl: "[day]-[month]-[year]",
+  sv: "[year]-[month]-[day]",
+)
+
+// Formats `date` per the given language if it is a `datetime`. A `date`
+// that is already a `str` (e.g. an explicit caller override, or a
+// non-standard date range like "2023 - Present") is passed through
+// unchanged so existing callers don't break.
+#let __format_date(date, language) = {
+  if type(date) == datetime {
+    date.display(__date-formats.at(language, default: __date-formats.en))
+  } else {
+    date
+  }
+}
+
 #let __apply_smallcaps(content, use-smallcaps) = {
   if use-smallcaps {
     smallcaps(content)
@@ -389,7 +418,7 @@
 /// - profile-picture-diameter (length): The diameter of the profile picture.
 /// - contact-items-separator (content): Separator to use between the "contact" items in the header of the resume. This includes items like your email, website, Github account, phone number and so on. The default is blank spacing.
 /// - contact-items-inset (dictionary): Gap between contact item icon and contact item text.
-/// - date (string): The date the resume was created
+/// - date (datetime | string): The date the resume was created. Defaults to today, formatted per `language`. Pass a `str` to bypass locale formatting entirely.
 /// - accent-color (color): The accent color of the resume
 /// - colored-headers (boolean): Whether the headers should be colored or not
 /// - language (string): The language of the resume, defaults to "en". See lang.toml for available languages
@@ -406,7 +435,7 @@
   profile-picture-diameter: 4cm,
   contact-items-separator: h(10pt),
   contact-items-inset: (left: 4pt),
-  date: datetime.today().display("[month repr:long] [day], [year]"),
+  date: datetime.today(),
   accent-color: default-accent-color,
   colored-headers: true,
   show-footer: true,
@@ -426,6 +455,7 @@
   }
 
   let lang_data = toml("lang.toml")
+  let date = __format_date(date, language)
 
   let desc = if description == none {
     (
@@ -752,7 +782,7 @@
 /// - signature-padding (dictionary): Padding of the signature.
 /// - signature-alignment (alignment): Alignment of the signature.
 /// - par-spacing (length): Spacing between paragraphs of the letter content.
-/// - date (datetime): The date the cover letter was created. This will default to the current date.
+/// - date (datetime | string): The date the cover letter was created. Defaults to today, formatted per `language`. Pass a `str` to bypass locale formatting entirely.
 /// - accent-color (color): The accent color of the cover letter
 /// - language (string): The language of the cover letter, defaults to "en". See lang.toml for available languages
 /// - margins (dictionary): The margin values for the cover letter. Note: when show-footer is true, 10mm is added to the bottom margin to accommodate the footer.
@@ -775,7 +805,7 @@
   signature-padding: (top: 1em),
   signature-alignment: left,
   par-spacing: 1.5em,
-  date: datetime.today().display("[month repr:long] [day], [year]"),
+  date: datetime.today(),
   accent-color: default-accent-color,
   language: "en",
   font: "Source Sans 3",
@@ -797,6 +827,7 @@
 
   // language data
   let lang_data = toml("lang.toml")
+  let date = __format_date(date, language)
 
   if signature == none {
     signature = default-signature(
@@ -967,12 +998,15 @@
 
 /// Cover letter heading that takes in the information for the hiring company and formats it properly.
 /// - entity-info (content): The information of the hiring entity including the company name, the target (who's attention to), street address, and city
-/// - date (date): The date the letter was written (defaults to the current date)
+/// - date (datetime | string): The date the letter was written. Defaults to today, formatted per `language`. Pass a `str` to bypass locale formatting entirely.
+/// - language (string): The language used to format `date`, defaults to "en". This is independent from `coverletter`'s `language` argument since `hiring-entity-info` is called separately — pass the same value you gave `coverletter.with(language: ...)`.
 #let hiring-entity-info(
   entity-info: (:),
-  date: datetime.today().display("[month repr:long] [day], [year]"),
+  date: datetime.today(),
+  language: "en",
   use-smallcaps: true,
 ) = {
+  let date = __format_date(date, language)
   set par(leading: 1em, ..default-par)
   pad(top: 1.5em, bottom: 1.5em)[
     #__justify_align[
