@@ -1,0 +1,7 @@
+[tools]
+"cargo:oxipng" = "10.2.0"
+"cargo:typstyle" = "0.15.1"
+"cargo:tytanic" = "0.4.1"
+just = "1.58.0"
+rust = "1.98.0"
+typst = "0.14.2"
