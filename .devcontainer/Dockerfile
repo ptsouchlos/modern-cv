@@ -40,4 +40,9 @@ RUN chmod +x /home/contributor/.mise-bootstrap/scripts/* \
   && /home/contributor/.mise-bootstrap/scripts/install-source-sans \
   && /home/contributor/.mise-bootstrap/scripts/install-fontawesome
 
+USER root
+RUN cp -a /home/contributor/.local/share/fonts/. /usr/local/share/fonts/ \
+  && fc-cache -f
+USER contributor
+
 WORKDIR /workspace

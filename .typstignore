@@ -1,5 +1,7 @@
 .github
 .fork
+.devcontainer
+mise.toml
 scripts
 template/*.pdf
 .gitignore

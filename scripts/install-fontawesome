@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eu
 
+# Also mirrored in template/.devcontainer/Dockerfile — update both.
+
 wget -O ~/fontawesome.zip https://github.com/FortAwesome/Font-Awesome/releases/download/7.3.0/fontawesome-free-7.3.0-desktop.zip
 mkdir -p ~/fontawesome-fonts
 unzip ~/fontawesome.zip -d ~/fontawesome-fonts

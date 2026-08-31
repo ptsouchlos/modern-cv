@@ -1,7 +1,8 @@
 {
   "name": "modern-cv Dev",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
   "remoteUser": "contributor",
   "workspaceFolder": "/workspace",

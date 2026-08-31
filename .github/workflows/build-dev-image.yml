@@ -5,6 +5,7 @@ on:
     paths:
       - '.devcontainer/**'
       - 'mise.toml'
+      - 'scripts/install-*'
       - '.github/workflows/build-dev-image.yml'
 
 permissions:

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Also mirrored in template/.devcontainer/Dockerfile — update both.
+
 wget -O ~/roboto.zip 'https://github.com/googlefonts/roboto-3-classic/releases/download/v3.015/Roboto_v3.015.zip'
 mkdir -p ~/.local/share/fonts
 unzip -j ~/roboto.zip 'unhinted/static/*.ttf' -d ~/.local/share/fonts
