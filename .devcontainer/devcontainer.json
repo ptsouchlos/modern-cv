@@ -1,0 +1,9 @@
+{
+  "name": "modern-cv Dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "contributor",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+}
