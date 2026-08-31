@@ -1,16 +1,12 @@
 FROM ghcr.io/typst/typst:0.14.2
 
-# Install git and font-roboto
-RUN apk add git font-roboto
+RUN apk add bash git wget unzip fontconfig
 
-# Install Source Sans 3
-RUN wget https://github.com/adobe-fonts/source-sans/releases/download/3.052R/OTF-source-sans-3.052R.zip
-RUN mkdir -p /usr/share/fonts/source-sans-3
-RUN unzip OTF-source-sans-3.052R.zip -d /usr/share/fonts/source-sans-3
-RUN rm OTF-source-sans-3.052R.zip
+ENV HOME=/home/typst
 
-# Install Font Awesome
-RUN wget https://use.fontawesome.com/releases/v7.1.0/fontawesome-free-7.1.0-desktop.zip
-RUN mkdir -p /usr/share/fonts/fontawesome
-RUN unzip fontawesome-free-7.1.0-desktop.zip -d /usr/share/fonts/fontawesome
-RUN rm fontawesome-free-7.1.0-desktop.zip
+COPY scripts/install-roboto scripts/install-source-sans scripts/install-fontawesome /tmp/font-scripts/
+RUN chmod +x /tmp/font-scripts/* \
+  && /tmp/font-scripts/install-roboto \
+  && /tmp/font-scripts/install-source-sans \
+  && /tmp/font-scripts/install-fontawesome \
+  && rm -rf /tmp/font-scripts
