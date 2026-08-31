@@ -8,11 +8,11 @@ on:
 jobs:
   check-format:
     runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/ptsouchlos/modern-cv-dev:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: typstyle
-        uses: typstyle-rs/typstyle-action@main
-        with:
-          opts: --check
+      - name: Check formatting
+        run: find . -iname "*.typ" | xargs typstyle --check
