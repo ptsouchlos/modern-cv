@@ -15,25 +15,11 @@ env:
 jobs:
   release:
     runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/ptsouchlos/modern-cv-dev:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Probe runner package cache
-        uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: cargo
-          version: 1.0
-
-      - name: Install just from crates.io
-        uses: baptiste0928/cargo-install@v3
-        with:
-          crate: just
-
-      - name: Setup typst
-        uses: typst-community/setup-typst@v4
-        with:
-          typst-version: ^0.13.0
 
       - name: Determine and check package metadata
         run: |
