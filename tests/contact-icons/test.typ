@@ -30,6 +30,13 @@
         icon: "youtube",
         link: "https://example.com",
       ),
+      // `icon` accepts any Font Awesome icon name, not just the ones with a
+      // dedicated `author` field (e.g. self-hosted Forgejo instances).
+      (
+        text: "My Forgejo Instance",
+        icon: "forgejo",
+        link: "https://forge.example.com/js",
+      ),
     ),
   ),
   date: "2025-01-01",
