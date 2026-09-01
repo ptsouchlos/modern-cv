@@ -10,11 +10,15 @@
     email: "career@totally.rip",
     phone: "(+1) 111-111-111",
     github: "john",
+    address: "111 Example St. Example City, EX 11111",
     positions: (),
   ),
   profile-picture: none,
   colored-headers: false,
   margins: (left: 25mm, right: 25mm, top: 20mm, bottom: 20mm),
+  // exercise the address-icon branch of resume(), which is otherwise only
+  // covered by coverletter()'s copy of the same logic.
+  show-address-icon: true,
 )
 
 = Education
