@@ -37,6 +37,14 @@
         icon: "forgejo",
         link: "https://forge.example.com/js",
       ),
+      // `icon` and `link` are both optional on a `custom` entry.
+      (
+        text: "No Icon, Has Link",
+        link: "https://example.com/no-icon",
+      ),
+      (
+        text: "No Icon, No Link",
+      ),
     ),
   ),
   date: "2025-01-01",
