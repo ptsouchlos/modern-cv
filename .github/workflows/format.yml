@@ -16,7 +16,7 @@ jobs:
       options: --user root
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Check formatting
         run: find . -iname "*.typ" | xargs typstyle --check

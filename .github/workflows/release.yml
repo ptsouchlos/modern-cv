@@ -23,7 +23,7 @@ jobs:
       options: --user root
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Determine and check package metadata
         run: |
@@ -47,7 +47,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: Checkout package registry
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.REGISTRY_REPO }}
           token: ${{ secrets.REGISTRY_TOKEN }}
