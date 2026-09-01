@@ -12,6 +12,14 @@
 #assert.eq(__format_date(d, "sv"), "2026-08-28")
 #assert.eq(__format_date(d, "zh"), "2026年08月28日")
 
+// Remaining `lang.toml` locales not covered above.
+#assert.eq(__format_date(d, "gr"), "28/08/2026")
+#assert.eq(__format_date(d, "pt"), "28/08/2026")
+#assert.eq(__format_date(d, "sp"), "28/08/2026")
+#assert.eq(__format_date(d, "ru"), "28.08.2026")
+#assert.eq(__format_date(d, "it"), "28/08/2026")
+#assert.eq(__format_date(d, "nl"), "28-08-2026")
+
 // An unrecognized language code falls back to the "en" format rather than
 // erroring.
 #assert.eq(__format_date(d, "xx"), "August 28, 2026")
