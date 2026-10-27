@@ -108,6 +108,29 @@ For more information on how to use and compile `typst` files, see the [official 
 
 Documentation for this template is published with each commit. See the attached PDF on each Github Action run [here](https://github.com/ptsouchlos/modern-cv/actions).
 
+### Custom footers
+
+Both `resume` and `coverletter` accept an optional `footer` argument. Omit it to keep the default footer (date, author and document type, and page number), or supply Typst content to replace the entire footer:
+
+```typst
+#show: resume.with(
+  author: (
+    firstname: "John",
+    lastname: "Smith",
+    positions: (),
+  ),
+  profile-picture: none,
+  footer: [
+    #set text(size: 8pt, fill: gray)
+    #align(center)[
+      Available for opportunities · Page #context counter(page).display()
+    ]
+  ],
+)
+```
+
+Custom content controls its own formatting and can include links, layouts, and contextual page counters. Passing `footer: none` restores the default footer; `footer: []` leaves it empty but keeps the extra 10mm bottom margin. Set `show-footer: false` to hide either the default or custom footer and remove that extra margin.
+
 ## Building and Testing Locally
 
 To build and test the project locally, you will need to install the `typst` CLI. You can find instructions on how to do this [here](https://github.com/typst/typst#installation).
