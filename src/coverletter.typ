@@ -38,9 +38,9 @@
     #text(weight: "light")[#helpers.linguify("sincerely", from: lang-data)#if (
         language != "de"
       ) [#sym.comma]] \
-    #if ("signature" in author) {
-      author.signature
-    } \
+    #if ("signature" in author) [
+      #author.signature \
+    ]
     #text(weight: "bold")[#author.firstname #author.lastname]
   ])
 }
