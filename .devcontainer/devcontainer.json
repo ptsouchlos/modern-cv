@@ -6,5 +6,7 @@
   },
   "remoteUser": "contributor",
   "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  "workspaceMount": "",
+  "runArgs": ["--volume=${localWorkspaceFolder}:/workspace:z"],
+  "updateRemoteUserUID": true
 }

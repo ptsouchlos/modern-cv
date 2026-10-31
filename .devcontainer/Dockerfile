@@ -21,7 +21,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && apt-get update && apt-get install -y --no-install-recommends gh \
   && rm -rf /var/lib/apt/lists/* /tmp/githubcli-archive-keyring.gpg
 
-RUN useradd --create-home --shell /bin/bash contributor
+# Ubuntu 24.04+ ships an `ubuntu` user at UID 1000. Remove it so `contributor`
+# can take UID 1000 and match the host user (updateRemoteUserUID skips the
+# remap when the target UID is already taken, leaving the bind mount unwritable).
+RUN userdel -r ubuntu \
+  && useradd --create-home --shell /bin/bash contributor
 USER contributor
 WORKDIR /home/contributor
 
