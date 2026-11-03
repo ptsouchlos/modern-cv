@@ -34,7 +34,14 @@
 /// - credentials-separator (string): Separator between the author's name and their credentials in the signature.
 /// - alignment (alignment): Alignment of the signature.
 /// - padding (dictionary): Padding of the signature.
-#let __default-signature(lang-data, language, author, credentials-separator, alignment, padding) = {
+#let __default-signature(
+  lang-data,
+  language,
+  author,
+  credentials-separator,
+  alignment,
+  padding,
+) = {
   align(alignment, pad(..padding)[
     #text(weight: "light")[#helpers.linguify("sincerely", from: lang-data)#if (
         language != "de"
