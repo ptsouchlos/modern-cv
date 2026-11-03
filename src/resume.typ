@@ -72,6 +72,8 @@
 /// - date (datetime | string): The date the resume was created. Defaults to today, formatted per `language`. Pass a `str` to bypass locale formatting entirely.
 /// - accent-color (color): The accent color of the resume
 /// - colored-headers (boolean): Whether the headers should be colored or not
+/// - show-footer (boolean): Whether to show the footer or not. When false, custom footer content is also hidden and no extra bottom margin is added.
+/// - footer (content | none): Custom footer content. Omit this option or pass `none` to use the default date, author, document type, and page number. Pass `[]` for an empty footer while retaining the footer margin. Custom content controls its own formatting.
 /// - language (string): The language of the resume, defaults to "en". See lang.toml for available languages
 /// - margins (dictionary): The margin values for the resume. Note: when show-footer is true, 10mm is added to the bottom margin to accommodate the footer.
 /// - use-smallcaps (boolean): Whether to use small caps formatting throughout the template
@@ -90,6 +92,7 @@
   accent-color: colors.default-accent,
   colored-headers: true,
   show-footer: true,
+  footer: none,
   language: "en",
   font: "Source Sans 3",
   header-font: "Roboto",
@@ -146,13 +149,17 @@
       top: margins.top,
       bottom: if show-footer { margins.bottom + 10mm } else { margins.bottom },
     ),
-    footer: if show-footer [#__footer(
+    footer: if not show-footer {
+      []
+    } else if footer != none {
+      footer
+    } else [#__footer(
       author,
       language,
       lang_data,
       date,
       use-smallcaps: use-smallcaps,
-    )] else [],
+    )],
     footer-descent: 35%,
   )
 

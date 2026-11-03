@@ -78,7 +78,8 @@
 /// - margins (dictionary): The margin values for the cover letter. Note: when show-footer is true, 10mm is added to the bottom margin to accommodate the footer.
 /// - font (array): The font families of the cover letter
 /// - header-font (array): The font families of the cover letter header
-/// - show-footer (boolean): Whether to show the footer or not
+/// - show-footer (boolean): Whether to show the footer or not. When false, custom footer content is also hidden and no extra bottom margin is added.
+/// - footer (content | none): Custom footer content. Omit this option or pass `none` to use the default date, author, document type, and page number. Pass `[]` for an empty footer while retaining the footer margin. Custom content controls its own formatting.
 /// - signature (content): The signature of the cover letter. You can set this to `none` to show the default signature or remove it completely.
 /// - closing (content): The closing of the cover letter. This defaults to "Attached Curriculum Vitae". You can set this to `none` to show the default closing or remove it completely.
 /// - use-smallcaps (boolean): Whether to use small caps formatting throughout the template
@@ -101,6 +102,7 @@
   font: "Source Sans 3",
   header-font: "Roboto",
   show-footer: true,
+  footer: none,
   signature: none,
   closing: none,
   paper-size: "a4",
@@ -171,13 +173,17 @@
       top: margins.top,
       bottom: if show-footer { margins.bottom + 10mm } else { margins.bottom },
     ),
-    footer: if show-footer [#__footer(
+    footer: if not show-footer {
+      []
+    } else if footer != none {
+      footer
+    } else [#__footer(
       author,
       language,
       date,
       lang_data,
       use-smallcaps: use-smallcaps,
-    )] else [],
+    )],
     footer-descent: 35%,
   )
 
