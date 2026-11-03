@@ -31,9 +31,10 @@
 /// - lang-data (dictionary): Structure that contains all the language data. Used with `linguify`
 /// - language (string): The language of the cover letter.
 /// - author (string): The author of the cover letter.
+/// - credentials-separator (string): Separator between the author's name and their credentials in the signature.
 /// - alignment (alignment): Alignment of the signature.
 /// - padding (dictionary): Padding of the signature.
-#let __default-signature(lang-data, language, author, alignment, padding) = {
+#let __default-signature(lang-data, language, author, credentials-separator, alignment, padding) = {
   align(alignment, pad(..padding)[
     #text(weight: "light")[#helpers.linguify("sincerely", from: lang-data)#if (
         language != "de"
@@ -42,6 +43,9 @@
       #author.signature \
     ]
     #text(weight: "bold")[#author.firstname #author.lastname]
+    #if ("credentials" in author) [
+      #credentials-separator#text(weight: "light")[#author.credentials]
+    ]
   ])
 }
 
@@ -64,13 +68,14 @@
 
 /// Cover letter template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template.
 /// This coverletter template is designed to be used with the resume template.
-/// - author (dictionary): Structure that takes in all the author's information. The following fields are required: firstname, lastname, positions. The following fields are used if available: email, phone, github, linkedin, orcid, address, website, custom. The `custom` field is an array of additional entries with the following fields: text (string, required), icon (string, optional Font Awesome icon name), link (string, optional).
+/// - author (dictionary): Structure that takes in all the author's information. The following fields are required: firstname, lastname, positions. The following fields are used if available: email, phone, github, linkedin, orcid, address, website, credentials, custom. The `credentials` field is a string of academic or professional credentials (e.g., "PhD") appended to the name in the default signature. The `custom` field is an array of additional entries with the following fields: text (string, required), icon (string, optional Font Awesome icon name), link (string, optional).
 /// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
 /// - contact-items-separator (content): Separator to use between the "contact" items in the header of the coverletter. This includes items like your email, website, Github account, phone number and so on. The default is blank spacing.
 /// - contact-items-inset (dictionary): Gap between contact item icon and contact item text.
 /// - heading-padding (dictionary): Padding of the salutation line.
 /// - signature-padding (dictionary): Padding of the signature.
 /// - signature-alignment (alignment): Alignment of the signature.
+/// - credentials-separator (str): Separator between the name and the credentials in the default signature.
 /// - par-spacing (length): Spacing between paragraphs of the letter content.
 /// - date (datetime | string): The date the cover letter was created. Defaults to today, formatted per `language`. Pass a `str` to bypass locale formatting entirely.
 /// - accent-color (color): The accent color of the cover letter
@@ -95,6 +100,7 @@
   heading-padding: (above: 2em, below: 1em),
   signature-padding: (top: 1em),
   signature-alignment: left,
+  credentials-separator: " ",
   par-spacing: 1.5em,
   date: datetime.today(),
   accent-color: colors.default-accent,
@@ -126,6 +132,7 @@
       lang_data,
       language,
       author,
+      credentials-separator,
       signature-alignment,
       signature-padding,
     )
