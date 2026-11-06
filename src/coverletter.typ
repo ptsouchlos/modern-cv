@@ -322,11 +322,13 @@
 /// Letter heading for a given job position and addressee.
 /// - job-position (string): The job position you are applying for
 /// - addressee (string): The person you are addressing the letter to
+/// - letter-position-pretext (string): optional field for redefining the text preceding the job position
 /// - dear (string): optional field for redefining the "dear" variable
 /// - padding (dictionary): Padding of the heading line
 #let letter-heading(
   job-position: "",
   addressee: "",
+  letter-position-pretext: "",
   dear: "",
   padding: (top: 1em, bottom: 1em),
 ) = {
@@ -335,10 +337,13 @@
 
   // TODO: Make this adaptable to content
   underline(evade: false, stroke: 0.5pt, offset: 0.3em)[
-    #text(weight: "bold", size: 12pt)[#helpers.linguify(
-        "letter-position-pretext",
-        from: lang_data,
-      ) #job-position]
+    #text(weight: "bold", size: 12pt)[
+      #if letter-position-pretext == "" [
+        #helpers.linguify("letter-position-pretext", from: lang_data)
+      ] else [
+        #letter-position-pretext
+      ]
+      #job-position]
   ]
   pad(..padding)[
     #text(weight: "light", fill: colors.gray)[
