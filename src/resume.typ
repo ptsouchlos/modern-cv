@@ -10,7 +10,7 @@
     #helpers.apply-smallcaps(
       {
         let name = helpers.format-author-name(author, language)
-        name + " · " + helpers.linguify("resume", from: lang_data)
+        name + " · " + helpers.linguify("resume")
       },
       use-smallcaps,
     )
@@ -113,7 +113,7 @@
 
   let desc = if description == none {
     (
-      helpers.linguify("resume", lang: language, from: lang_data)
+      helpers.linguify("resume", lang: language)
         + " "
         + author.firstname
         + " "
@@ -126,7 +126,7 @@
   show: body => context {
     set document(
       author: author.firstname + " " + author.lastname,
-      title: helpers.linguify("resume", lang: language, from: lang_data),
+      title: helpers.linguify("resume", lang: language),
       description: desc,
       keywords: keywords,
     )
