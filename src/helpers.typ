@@ -139,7 +139,11 @@
   if "homepage" in author {
     items.push(
       contact-entry(
-        (text: author.homepage, icon: icons.homepage, link: author.homepage),
+        (
+          text: author.homepage.replace(regex("^https?://"), ""),
+          icon: icons.homepage,
+          link: author.homepage,
+        ),
       ),
     )
   }
