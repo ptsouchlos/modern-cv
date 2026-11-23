@@ -16,6 +16,5 @@
 #let phone = box(fa-icon("square-phone", fill: colors.darknight))
 #let email = box(fa-icon("envelope", fill: colors.darknight))
 #let birth = box(fa-icon("cake", fill: colors.darknight))
-#let homepage = box(fa-icon("home", fill: colors.darknight))
 #let website = box(fa-icon("globe", fill: colors.darknight))
 #let address = box(fa-icon("location-crosshairs", fill: colors.darknight))
