@@ -103,12 +103,12 @@
   description: none,
   keywords: (),
   body,
+  lang_data: toml("lang.toml"),
 ) = {
   if type(accent-color) == str {
     accent-color = rgb(accent-color)
   }
 
-  let lang_data = toml("lang.toml")
   let date = helpers.format-date(date, language)
 
   let desc = if description == none {
