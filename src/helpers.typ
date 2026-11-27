@@ -136,17 +136,6 @@
       ),
     )
   }
-  if "homepage" in author {
-    items.push(
-      contact-entry(
-        (
-          text: author.homepage.replace(regex("^https?://"), ""),
-          icon: icons.homepage,
-          link: author.homepage,
-        ),
-      ),
-    )
-  }
   if "github" in author {
     items.push(
       contact-entry(
@@ -251,7 +240,11 @@
   if "website" in author {
     items.push(
       contact-entry(
-        (text: author.website, icon: icons.website, link: author.website),
+        (
+          text: author.website.replace(regex("^https?://"), ""),
+          icon: icons.website,
+          link: author.website,
+        ),
       ),
     )
   }

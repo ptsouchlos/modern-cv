@@ -56,7 +56,6 @@
 #icons.phone
 #icons.email
 #icons.birth
-#icons.homepage
 #icons.website
 #icons.gitlab
 #icons.bitbucket
