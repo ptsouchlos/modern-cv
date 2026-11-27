@@ -124,6 +124,7 @@
   show-address-icon: false,
   description: none,
   keywords: (),
+  lang_data: toml("lang.toml"),
   body,
 ) = {
   if type(accent-color) == str {
@@ -131,7 +132,6 @@
   }
 
   // language data
-  let lang_data = toml("lang.toml")
   let date = helpers.format-date(date, language)
 
   if signature == none {
@@ -345,9 +345,9 @@
   letter-position-pretext: "",
   dear: "",
   padding: (top: 1em, bottom: 1em),
+  lang_data: toml("lang.toml"),
 ) = {
   set par(..__default-par)
-  let lang_data = toml("lang.toml")
 
   // TODO: Make this adaptable to content
   underline(evade: false, stroke: 0.5pt, offset: 0.3em)[
